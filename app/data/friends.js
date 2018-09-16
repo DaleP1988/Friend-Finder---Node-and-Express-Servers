@@ -4,7 +4,7 @@ var friendsData = [
 
   {
     "name": "Jake Gyllenhaal",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAq7AAAAJDAwYzI4NTQ4LWYwZWUtNGFkYS1hNTYwLTZjYzkwY2ViZDA3OA.jpg",
+    "photo": "http://static.playbill.com/dims4/default/7493e57/2147483647/crop/919x1096%2B0%2B0/resize/300x358%3E/quality/90/?url=http%3A%2F%2Fstatic.playbill.com%2F14%2F52%2F9a104b594ace92546547389d2e49%2Fjake-gyllenhaal.jpg",
     "scores": [
       "5",
       "1",
@@ -21,7 +21,7 @@ var friendsData = [
 
   {
     "name": "Gwyneth Paltrow",
-    "photo": "https://pbs.twimg.com/profile_images/691785039043022849/oWsy8LNR.jpg",
+    "photo": "https://pbs.twimg.com/profile_images/971105319458754561/02vbXjWU_400x400.jpg",
     "scores": [
       "4",
       "2",
@@ -37,7 +37,7 @@ var friendsData = [
   },
   {
     "name": "Meg Ryan",
-    "photo": "https://avatars2.githubusercontent.com/u/8504998?v=3&s=460",
+    "photo": "https://pbs.twimg.com/profile_images/1640876790/71127_mesq_400x400.jpeg",
     "scores": [
       "5",
       "2",
@@ -53,7 +53,7 @@ var friendsData = [
   },
   {
     "name": "Robert Downey Jr.",
-    "photo": "https://pbs.twimg.com/profile_images/639214960049000449/lNCRC-ub.jpg",
+    "photo": "http://www.californiamuseum.org/sites/main/files/imagecache/lightbox/main-images/robertdowneyjr_cahalloffameinductee.png",
     "scores": [
       "3",
       "3",
@@ -85,7 +85,7 @@ var friendsData = [
   },
   {
     "name": "Carey Mulligan",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAisAAAAJGUxYzc4YzA0LWQxMzUtNGI4NS04YTFiLTkwYzM0YTZkNzA2NA.jpg",
+    "photo": "https://www.thetimes.co.uk/imageserver/image/methode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F867e6a70-00fe-11e8-825e-96e193a013c1.jpg?crop=3385%2C1904%2C9%2C788&resize=685",
     "scores": [
       "4",
       "4",
@@ -101,7 +101,7 @@ var friendsData = [
   },
   {
     "name": "Jim Carey",
-    "photo": "asdsdf",
+    "photo": "https://www.thewrap.com/wp-content/uploads/2017/09/Jim-Carrey.jpg",
     "scores": [
       "2",
       "1",

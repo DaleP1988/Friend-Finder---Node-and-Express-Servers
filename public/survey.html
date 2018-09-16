@@ -9,7 +9,7 @@
     
     h1 {color: orchid !important;}
     hr {margin-right: 25%;}
-    option { font-size: 12px  ! important;}
+    .option { font-size: 12px  ! important;}
     #submit { margin-left: 43%; }
     #name {width:50%;}
     #photo {width: 50%;}
@@ -147,7 +147,7 @@
         <!--MODAL CONTENT-->
              <div class="modal-header">
                  <button type="button" class="close" data-dismiss="modal">X</button>
-                 <h2 class="modal-title"><strong>Best Match</strong>
+                 <h2 class="modal-title"><strong>This one has Bestie Potential!</strong>
                  </h2>
             </div>
             <div class="modal-body">
@@ -163,13 +163,13 @@
     
   
 </div>
-</body>
-</html>
+
 <script type= "text/javascript">
 
 
 //form inputs
 // $(".chosen-select").val("");
+
 $("#submit").on("click", function(event) {
     event.preventDefault();
 
@@ -201,18 +201,20 @@ var userData = {
 
         if(data) {
             alert("You are officially listed in Friendly");
+            $("#match-name").text(data.name);
+            $("#match-img").attr("src", data.photo);
+            $("#results-modal").modal();
         }
 
 
 //NEED TO ADD MODAL POST LOGIC////
 
 //Grab result from AJAX post to display best match name and photo
-        // $("#match-name").text(data.name);
-        // $("#match-img").attr("src", data.photo);
+       
 //display modal with best match
 
-//   });
-    // $("#results-modal").modal();  //MAKE SURE MODAL IS AN ACTUAL FUNCTION     
+  
+     //MAKE SURE MODAL IS AN ACTUAL FUNCTION     
   
   else {
     alert("Fill out all the fields and get Friendly!");
@@ -235,3 +237,5 @@ var userData = {
 });
 
 </script>
+</body>
+</html>

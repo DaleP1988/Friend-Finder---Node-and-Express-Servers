@@ -9,6 +9,7 @@ module.exports = function (app) {
 
     app.get("/api/friends", function (req, res) {
         res.json(friendsData);
+        console.log(friendsData);
     });
 
 //API POST REQUESTS
@@ -25,7 +26,7 @@ module.exports = function (app) {
             var scoresDifference = 0;
             //check and compare scores
             for (var j = 0; j < friendScores.length; j++)
-                scoresDifference += (Math.abs(parseInt(friendData[i].scores[j]) - parseInt(friendScores[j])));
+                scoresDifference += (Math.abs(parseInt(friendsData[i].scores[j]) - parseInt(friendScores[j])));
         }
 
         scoreArray.push(scoresDifference);
