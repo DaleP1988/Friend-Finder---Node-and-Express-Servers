@@ -133,13 +133,13 @@
 <br> 
 <br>
 <footer class="footer">
-        <div class="container">
+    <div class="container">
           <p>
             <a href= "/api/friends">API Friends List</a> |
             <a href="https://github.com/DaleP1988/Friend-Finder---Node-and-Express-Servers.git">GitHub Repo</a>
-        </div>
-      </footer>
     </div>
+</footer>
+   
 
    <div id="results-modal" class="modal fade" role="dialog"> 
         <div class="modal-dialog">
@@ -151,14 +151,14 @@
                  </h2>
             </div>
             <div class="modal-body">
-                <h2 id="match-name"></h2>
-                <img id="match-img"  alt="">
+                <!-- <h2 id="match-name"></h2>
+                <img id="match-img"  alt=""> -->
              </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Try Again!</button>
             </div>
-        <!-- </div> -->
-    <!-- </div> -->
+        </div>
+    </div>
 
     
   
@@ -166,75 +166,107 @@
 
 <script type= "text/javascript">
 
+//this code should determine how data gets in from the server --- check tables.html
+//do an AJAX call to get the data from the friends api
 
 //form inputs
 // $(".chosen-select").val("");
+// $(document).ready(function() {
+
+    // $('select').material_select();
+   
+$("#results-modal").hide(); //hiding the div for the modal. avoiding the gray background.
 
 $("#submit").on("click", function(event) {
     event.preventDefault();
+    var valid = true;
+    $(".form-control").each(function(){
+        if($(this).text() == "" ){
+            alert("Please fill all fields!");
+            valid = false;
+        }
+    });
+    if(!valid){
+        return;
+    }
 
-//f
 
-//if filled, create user data object
 
-var userData = {
-    name: $("#name").val(),
-    photo: $("#photo").val(),
-    scores: [
-        ($("#q1").val()),
-        ($("#q2").val()),
-        ($("#q3").val()),
-        ($("#q4").val()),
-        ($("#q5").val()),
-        ($("#q6").val()),
-        ($("#q7").val()),
-        ($("#q8").val()),
-        ($("#q9").val()),
-        ($("#q10").val())
-      ]
-    };  
+//grab the form elements
+
+    var userData = {
+        name: $("#name").val(),
+        photo: $("#photo").val(),
+        scores: [
+            ($("#q1").val()),
+            ($("#q2").val()),
+            ($("#q3").val()),
+            ($("#q4").val()),
+            ($("#q5").val()),
+            ($("#q6").val()),
+            ($("#q7").val()),
+            ($("#q8").val()),
+            ($("#q9").val()),
+            ($("#q10").val())
+        ]
+        };  
 
     console.log(userData);
 
-// AJAX post the data to the friends API
-    $.post("/api/friends", userData, function(data) {
+    //CHECK RESERVE.HTML
+    // AJAX post the data to the friends API
+    //using the jQuery .done function to deal with the asynchronicity
+    $.post("/api/friends", userData, function (data) {
 
-        if(data) {
-            alert("You are officially listed in Friendly");
-            $("#match-name").text(data.name);
-            $("#match-img").attr("src", data.photo);
-            $("#results-modal").modal();
-        }
+        // if(data) {
+        alert("You are officially listed in Friendly! Let's findy you a new bestie!");
+        console.log(data);
+        // $("#match-name").html(data.name);
+        // $("#match-img").attr("src", data.photo);
+        // $("#results-modal").modal('open'
+
+        $('.modal-body').empty();  //get rid of previous match. get the width of the modal.
+
+        var header = $("<h2>").text("Meet: " + data.name);
+        var img = $("<img>").attr("src", data.photo).attr("width", "300px");
 
 
-//NEED TO ADD MODAL POST LOGIC////
+        var newBestieInfo = $(".modal-body");
+        newBestieInfo.append(header).append(img);
+
+        $('.modal').modal({
+            dismissible: false,
+            // Modal can be dismissed by clicking outside of the modal
+            // opacity: .5, // Opacity of modal background
+            // inDuration: 300, // Transition in duration
+            // outDuration: 200, // Transition out duration
+            // startingTop: '4%', // Starting top style attribute
+            // endingTop: '10%' // Ending top style attribute
+        }).show();  //hide until data is available
+    });
+
+});
+
+  
+
+
+
+   //server code changes, restart server!!!!!!!
+
+
 
 //Grab result from AJAX post to display best match name and photo
        
 //display modal with best match
 
   
-     //MAKE SURE MODAL IS AN ACTUAL FUNCTION     
-  
-  else {
-    alert("Fill out all the fields and get Friendly!");
-  }
-        //empty form
-        $("#name").val(""),
-        $("#photo").val(""),
-        $("#q1").val(""),
-        $("#q2").val(""),
-        $("#q3").val(""),
-        $("#q4").val(""),
-        $("#q5").val(""),
-        $("#q6").val(""),
-        $("#q7").val(""),
-        $("#q8").val(""),
-        $("#q9").val(""),
-        $("#q10").val("")
 
-    });
-});
+//run the best match function
+// <!-- 
+// findBestMatch();
+
+//   -->
+
 
 </script>
 </body>
